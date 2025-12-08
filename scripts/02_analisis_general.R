@@ -3,6 +3,7 @@ source(here::here("funciones", "funcion_importa_exportar.R"))
 source(here::here("funciones", "funcion_analisis_na.R"))
 source(here::here("funciones", "funcion_limpieza.R"))
 
+
 pwt_tabla_est<-importar_datos(nombre_archivo = "pwt_tabla.csv",carpeta = "raw")
 wdi_tabla_est<-importar_datos(nombre_archivo = "wdi_tabla.csv",carpeta = "raw")
 meta_data<-importar_datos(nombre_archivo = "meta_continente.csv",carpeta = "raw")
@@ -28,6 +29,15 @@ wdi_filter_year %>%dplyr::distinct(year) %>%dplyr::count() # 55
 inflacion_filter_year%>%dplyr::distinct(Year) %>%dplyr::count() # 55
 tabla_inflacion_2%>%dplyr::distinct(year) %>%dplyr::count()#55
 
+#==============================================================================#
+# UNION DE TABLA DE PWT Y INFLACION
+#==============================================================================#
+tabla_unida <- pwt_filer_year %>%
+  left_join(tabla_inflacion_2, 
+            by = c(
+              "countrycode" = "country_code", # Mapea "countrycode" de tabla_uno a "contry_code" de tabla_dos
+              "year" = "year"                # Mapea "year" de ambas tablas
+            ))%>%select(-indicator_type, -note, -country.y)
 
 
 #==============================================================================#
@@ -65,13 +75,6 @@ aggr(inflacion_filter_year,
      ylab = c("Proporción de Faltantes", "Patrones de Combinación") # Títulos de los ejes Y
 )
 #==============================================================================#
-# UNION DE TABLA DE PWT Y INFLACION
-tabla_unida <- pwt_filer_year %>%
-  left_join(tabla_inflacion_2, 
-            by = c(
-              "countrycode" = "country_code", # Mapea "countrycode" de tabla_uno a "contry_code" de tabla_dos
-              "year" = "year"                # Mapea "year" de ambas tablas
-            ))%>%select(-indicator_type, -note, -country.y)
 
 #conteo de años y apises
 tabla_unida%>%dplyr::distinct(countrycode) %>%dplyr::count()#185

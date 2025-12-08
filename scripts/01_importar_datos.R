@@ -83,7 +83,7 @@ print(inflacion_wb, n=Inf)
 
 
 #==============================================================================#
-# DESCARGA DE DATOS DE **META-DATA** DEL BANCO BANCO MUNDIAL
+# descarga y carga DE DATOS DE **META-DATA** DEL BANCO BANCO MUNDIAL
 #==============================================================================#
 meta <- WDI_data$country
 meta_continente<-meta%>%dplyr::select("iso3c","region", "income")

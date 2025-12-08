@@ -62,7 +62,7 @@ importar_datos <- function(nombre_archivo, carpeta = "raw", encoding = "UTF-8") 
                   stop("Formato no soportado: ", extension))
   
   # Información sobre los datos cargados
-  mensaje_exito(paste("Cargado:", nrow(datos), "filas,", ncol(datos), "columnas"))
-  
+
   return(datos)
 }
+

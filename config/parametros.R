@@ -15,11 +15,11 @@ options(scipen = 999)  # Evitar notación científica
 options(digits = 2) # Decimales a mostrar 
 
 # LIBRERÍAS DEL PROYECTO
-#library(here)
+library(here)
 library(WDI)
 library(pwt10)
 library(tidyverse)
-#library(dplyr)
+library(dplyr)
 library(readxl)
 #library(lubridate)
 #library(scales)
@@ -47,7 +47,7 @@ library(zoo)
 #library(purrr)
 #library(rlang)
 library(ggrepel) # Etiquetas para los grafios de outliers
-library(stargazer)
+#library(stargazer)
 
 # DEFINIR DIRECTORIO DE MANERA RERODUCIBLE
 if (!exists("proyecto_tp_grupal")) {
