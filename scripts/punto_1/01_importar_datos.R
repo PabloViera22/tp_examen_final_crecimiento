@@ -48,41 +48,6 @@ wdi_ready
 exportar_data(data = wdi_ready,nombre = "wdi_tabla" ,carpeta = "raw")
 
 #==============================================================================#
-# DESCARGA DE DATOS DE **INFLACION** DEL BANCO BANCO MUNDIAL
-#==============================================================================#
-inflacion_wb<-importar_datos(nombre_archivo = "inflacion_wb.csv", carpeta = "raw")
-print(inflacion_wb, n=Inf)
-
-# PIVOTEAR
-  tabla_larga_inflacion <- inflacion_wb %>%
-    pivot_longer(
-      # Excluye las columnas de identificación con el signo '-'
-      cols = -c(`Country Name`, `Country Code`, `Indicator Name`, `Indicator Code`),
-      # Los nombres de las columnas pivotadas (los años) irán a la columna 'Year'
-      names_to = "Year",
-      # Los valores de esas columnas (la tasa de inflación) irán a 'Value'
-      values_to = "Value"
-    ) %>%
-    # Limpieza opcional: Convertir la columna Year a numérica (si no tiene las tildes)
-    # y convertir Value a numérica (si es doble)
-    mutate(
-      Year = as.numeric(gsub("`", "", Year))
-    )
-  
-# ELIMINO AÑOS ANTERIORES A 1970
-  tabla_filtrada <- tabla_larga_inflacion %>%
-    # Aseguramos que la columna Year sea numérica antes de filtrar
-    mutate(Year = as.numeric(Year)) %>%
-    # Filtramos para incluir solo los años mayores o iguales a 1970
-    filter(Year >= 1970)
-  # El resultado se guarda en 'tabla_filtrada'
-  head(tabla_filtrada)
-
-  exportar_data(data = tabla_filtrada,nombre = "inflacion" ,carpeta = "raw")
-  
-
-
-#==============================================================================#
 # descarga y carga DE DATOS DE **META-DATA** DEL BANCO BANCO MUNDIAL
 #==============================================================================#
 meta <- WDI_data$country
