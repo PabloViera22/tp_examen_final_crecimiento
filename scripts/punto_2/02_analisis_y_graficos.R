@@ -36,9 +36,9 @@ grafico_dispersion <- ggplot(
     axis.text.x = element_text(angle = 45, hjust = 1) 
   ) +
   labs(
-    title = paste("Evolución de acciones negociadas totales como parte del PBI (%) en", PAIS_1, "vs.", PAIS_2),
+    title = paste("Evolución del crédito privado de los bancos de depósito sobre el PBI (%) en", PAIS_1, "vs.", PAIS_2),
     x = "Año",
-    y = "Acciones Negociadas",
+    y = "Crédito Privado",
     color = "País"
   )
 
