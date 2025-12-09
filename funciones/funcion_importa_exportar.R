@@ -56,7 +56,7 @@ importar_datos <- function(nombre_archivo, carpeta = "raw", encoding = "UTF-8") 
   
   datos <- switch(extension,
                   "csv" = read_csv(ruta_completa, locale = locale(encoding = encoding)),
-                  "xlsx" = read_excel(ruta_completa, sheet = 3),
+                  "xlsx" = read_excel(ruta_completa, sheet = 1),
                   "rds" = readRDS(ruta_completa),
                   "txt" = read_delim(ruta_completa, locale = locale(encoding = encoding)),
                   stop("Formato no soportado: ", extension))

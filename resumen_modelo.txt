@@ -1,0 +1,36 @@
+
+Modelo de Regresión con Umbral (Efectos Fijos)
+======================================================
+                               Dependent variable:    
+                           ---------------------------
+                               Cambio en Log(GDP)     
+------------------------------------------------------
+Inflación (Régimen Bajo)              0.016           
+                                     (0.080)          
+                                                      
+Inflación (Régimen Alto)            -0.190***         
+                                     (0.020)          
+                                                      
+Intercepto Régimen Bajo              -0.061           
+                                     (0.057)          
+                                                      
+Ahorro                               0.470*           
+                                     (0.250)          
+                                                      
+Crecimiento Población              -14.000***         
+                                     (2.500)          
+                                                      
+Incremento Total (%)                 -0.004           
+                                     (0.005)          
+                                                      
+Desvío Estándar Total                -0.330           
+                                     (0.390)          
+                                                      
+------------------------------------------------------
+Efectos Fijos Individuales             Sí             
+Observations                           638            
+R2                                    0.260           
+Adjusted R2                           0.170           
+F Statistic                  28.000*** (df = 7; 573)  
+======================================================
+Note:                      *p<0.1; **p<0.05; ***p<0.01

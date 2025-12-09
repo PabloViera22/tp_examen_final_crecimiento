@@ -47,7 +47,8 @@ library(zoo)
 #library(purrr)
 #library(rlang)
 library(ggrepel) # Etiquetas para los grafios de outliers
-#library(stargazer)
+library(stargazer)
+library(plm)  
 
 # DEFINIR DIRECTORIO DE MANERA RERODUCIBLE
 if (!exists("proyecto_tp_grupal")) {
