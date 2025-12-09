@@ -30,7 +30,7 @@ n_distinct(inflacion_muestra$country)# 50 paises subio a 58
 
 # datos del sistema financiero
 datos_bancarios<-importar_datos(nombre_archivo = "wb_sistema_financiero.xlsx",carpeta = "raw")
-datos_banco_muestra<-datos_bancarios%>%select(country,iso3, year, di01,dm02)%>%
+datos_banco_muestra<-datos_bancarios%>%select(country,iso3, year, di01,dm02, om01)%>%
   dplyr::filter(year>=1970)%>%filter(country %in% suma_de_seleccion)
 n_distinct(datos_banco_muestra$country)#subio a 58, faltan
 
@@ -41,10 +41,21 @@ tabla_unida <- inflacion_muestra %>%
               "country" = "country", # Mapea "countrycode" de tabla_uno a "contry_code" de tabla_dos
               "year" = "year"                # Mapea "year" de ambas tablas
             ))%>%select(-iso3)
+# TAMBIEN VOY A HACER UN JOIN SIN FFILTRAR PAISES
+inflacion_sin_filtrar<-inflacion%>% select(-note,-indicator_type)%>%filter(year<=2020)
+datos_sin_filtrar <-datos_bancarios%>%select(country,iso3, year, di01,dm02,om01)%>%
+  dplyr::filter(year>=1970)
+
+tabla_sin_filtrar <- inflacion_sin_filtrar %>%
+  left_join(datos_sin_filtrar, 
+            by = c("country" = "country", # Mapea "countrycode" de tabla_uno a "contry_code" de tabla_dos
+              "year" = "year"                # Mapea "year" de ambas tablas
+            ))%>%select(-iso3)
+
 
 # Exportamos los datos
 exportar_data(data = tabla_unida,nombre = "inflacion_mas_banco",carpeta = "processed")
-
+exportar_data(data = tabla_sin_filtrar,nombre = "inflacion_mas_banco_sf",carpeta = "processed")
 
 
 
