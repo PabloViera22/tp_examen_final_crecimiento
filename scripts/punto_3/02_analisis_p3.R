@@ -38,7 +38,7 @@ df_promedios_final <- df_quinquenal %>%
   )
 print(head(df_promedios_final))
 
-
+exportar_data(data = df_promedios_final, nombre = "quinquenios_p3", carpeta = "clean")
 
 
 
