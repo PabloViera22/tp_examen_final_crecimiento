@@ -11,20 +11,24 @@ en_desarrollo<-tabla_elejir_pais%>%dplyr::filter(nivel_de_desarrollo=="pais en d
   #unicos
 unique(desarrollado$country)
 unique(en_desarrollo$country)
-seleccion_desarrollados_27 <- c("Australia","Austria","Belgium","Canada", "Switzerland",
-                                "Germany","Denmark","Spain","Finland", "United States",
-                                "France","United Kingdom","Greece", "Ireland","Iceland",
-                                "Israel", "Italy","Japan","Republic of Korea","Luxembourg",
-                                "Malta","Netherlands","Norway", "New Zealand",  "Portugal",
-                                "Singapore","Sweden")
-seleccion_en_desarrollados_33<-c("Brazil", "Botswana", "China","Colombia" , "Dominican Republic",
-                                 "Costa Rica","Egypt","Ghana","India", "Iran (Islamic Republic of)",
-                                 "Jamaica","Liberia","Mexico","Botswana", "Cabo Verde",
-                                 "Saint Lucia","Sri Lanka", "Morocco" ,"Mexico","Mali",
-                                 "Nigeria", "Peru","Paraguay","Philippines","Senegal",
-                                 "Sierra Leone","El Salvador","Sao Tome and Principe", "Türkiye","Venezuela (Bolivarian Republic of)",
-                                 "South Africa","Viet Nam" ,"Cameroon" )
-suma_de_seleccion<-c(seleccion_desarrollados_27,seleccion_en_desarrollados_33)
+seleccion_desarrollados_29 <- c(
+  "Australia", "Austria", "Belgium", "Canada", "Switzerland",
+  "Germany", "Denmark", "Spain", "Finland", "United States",
+  "France", "United Kingdom", "Greece", "Ireland", "Iceland",
+  "Israel", "Italy", "Japan", "Korea, Rep.", "Republic of Korea" , "Luxembourg",
+  "Malta", "Netherlands", "Norway", "New Zealand", "Portugal",
+  "Singapore", "Sweden", "Chile", "Uruguay"
+)
+seleccion_en_desarrollados_31<- c(
+  "Brazil",  "Botswana", "China", "Colombia","Dominican Republic",
+  "Costa Rica", "Egypt, Arab Rep.", "Egypt","Ghana","India","Iran, Islamic Rep.","Iran (Islamic Republic of)",
+  "Jamaica","Liberia","Mexico", "Cabo Verde",
+  "St. Lucia","Saint Lucia" ,"Sri Lanka","Morocco", "Mali",
+  "Nigeria","Peru","Paraguay","Philippines","Senegal",
+  "Sierra Leone","El Salvador","São Tomé and Principe","Sao Tome and Principe" ,
+  "Turkey","Türkiye","Venezuela, RB", "Venezuela (Bolivarian Republic of)","South Africa","Vietnam", "Viet Nam","Cameroon"
+)
+suma_de_seleccion<-c(seleccion_desarrollados_29,seleccion_en_desarrollados_31)
 
 # LE TENGO QUE AGREGAR EL PBI PERCAPITA DE 1970
 pbi_en_1970<-importar_datos(nombre_archivo = "tabla_a_promediar.csv",carpeta = "processed")

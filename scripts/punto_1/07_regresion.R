@@ -98,7 +98,7 @@ pdata$pi_low <- pdata$pi_tilde * pdata$regime_low
 pdata$pi_high <- pdata$pi_tilde * pdata$regime_high
 
 # Modelo final
-formula_final <- avg_ln_rgdp_pc ~ pi_low + pi_high + regime_low + 
+formula_final <- avg_incremento_pct_pib ~ pi_low + pi_high + regime_low + 
   pbi_inicial + avg_csh_i + avg_dpop + avg_incremento_pct_tot + desvioEstandar_tot
 
 modelo_final <- plm(formula_final, data = pdata, 

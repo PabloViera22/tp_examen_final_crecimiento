@@ -5,7 +5,8 @@ source(here::here("funciones", "funcion_lag.R"))
 
 tabla_promediar<-importar_datos(nombre_archivo = "tabla_a_promediar.csv",carpeta = "processed")
 names(tabla_promediar)
-columnas_a_promediar <- c("ln_rgdp_pc", "inflacion", "ln_rgdp_pc", "csh_i", "dpop", "incremento_pct_tot")
+columnas_a_promediar <- c("incremento_pct_pib", "inflacion", "ln_rgdp_pc", 
+                          "csh_i", "dpop", "incremento_pct_tot","var_pct_pib_pc")
 
 
 #==============================================================================#

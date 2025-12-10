@@ -76,7 +76,7 @@ aggr(inflacion_filter_year,
 )
 #==============================================================================#
 
-#conteo de años y apises
+#conteo de años y paises
 tabla_unida%>%dplyr::distinct(countrycode) %>%dplyr::count()#185
 tabla_unida%>%dplyr::distinct(year) %>%dplyr::count()# 54
 
